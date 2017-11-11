@@ -26,6 +26,7 @@
   font-size : 10pt;
 }
 
+
 .table-header div.mdl-textfield {
   width: calc(100% - 20px);
   margin-bottom: 10px;
@@ -39,7 +40,7 @@
 }
 
 .mdl-textfield__input {
-  width: calc(100% - 60px);
+  width: calc(100% - 20px);
   left: 0;
   right: 0;
   top: 0;
