@@ -1,0 +1,94 @@
+.demo-layout-transparent {
+  background: url('http://materialdesignblog.com/wp-content/uploads/2016/06/image3.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+  your background is light. */
+  color: white;
+}
+.demo-card-wide.mdl-card {
+  width: calc(100% - 20px);
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 45vh;
+}
+.text {
+  font-size : 10pt;
+}
+
+.table-header div.mdl-textfield {
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+.category {
+  color: #00B7FF;
+}
+
+.mdl-textfield__input {
+  width: calc(100% - 60px);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.main_card {
+  margin: 10px;
+  padding: 30px;
+}
+
+.comment_card {
+  margin: 10px;
+  padding: 20px;
+}
+
+body {
+  background: #fafafa;
+  position: relative;
+}
+#title {
+  color: gray;
+  text-decoration: none;
+  margin-top:40px;
+  margin-bottom:10px;
+  margin-left:40px;
+  font-size:15pt;
+}
+button a {
+  color: #fafafa;
+  text-decoration:none;
+}
+span a {
+  color: #fafafa;
+  text-decoration:none;
+}
+.home {
+  text-decoration:none;
+  color: white;
+}
+
+#submit {
+  width: 100px;
+}
+a {
+  color: #00B7FF;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
