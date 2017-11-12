@@ -8,7 +8,7 @@
   color: white;
 }
 .demo-card-wide.mdl-card {
-  width: calc(100% - 20px);
+  width: calc(100% - 60px);
   margin-top: 20px;
   margin-left: 30px;
   margin-right: 30px;
@@ -21,6 +21,14 @@
 .demo-card-wide > .mdl-card__title {
   color: #fff;
   height: 45vh;
+}
+.demo-card-wide > .mdl-card__title_top {
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-size: 30pt;
+  color: #000;
+  height: 50%;
 }
 .text {
   font-size : 10pt;
@@ -68,6 +76,14 @@ body {
   margin-bottom:10px;
   margin-left:40px;
   font-size:15pt;
+}
+
+.inputBox {
+  width: calc(100% - 30px);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 button a {
   color: #fafafa;

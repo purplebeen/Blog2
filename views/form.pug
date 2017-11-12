@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    script(src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js")
+    main.mdl-layout__content
+        .page-content
+            .demo-card-wide.mdl-card.mdl-shadow--2dp
+                form(action='#', method='post')
+                    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.inputBox
+                        input#title_text.mdl-textfield__input(type='text', name='title')
+                        label.mdl-textfield__label(for='title_text') 제목
+                    div(style="margin:20px")
+                        textarea#content.inputBox(name="content", cols="30", rows="10")
+                    .mdl-selectfield.mdl-js-selectfield
+                        select#gender.mdl-selectfield__select
+                            option(value='')
+                            option(value='option1') option 1
+                            option(value='option2') option 2
+                        label.mdl-selectfield__label(for='gender') User gender
+                        span.mdl-selectfield__error Select a value
+    script.
+        var simplemde = new SimpleMDE({ element: document.getElementById("content") });
