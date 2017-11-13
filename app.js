@@ -5,6 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//mongoose setting
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/blog')
+var db = mongoose.connection;
+db.on('error', console.error)
+  .once('open',() => {
+    console.log('Connect to mongodb server');
+  });
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var post = require('./routes/post');
