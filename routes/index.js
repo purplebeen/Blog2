@@ -6,7 +6,6 @@ var Post = require('../models/Post');
 router.get('/', function(req, res, next) {
   Post.find({}, (err, posts) => {
     if(err) console.log(err.stack);
-    console.log(posts);
     res.render('index', {
         postList : posts
       });

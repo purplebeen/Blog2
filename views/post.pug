@@ -6,21 +6,21 @@ block content
             .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
             .demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col.main_card
                 div
-                    h1(style='float:left')  제목
+                    h1(style='float:left')  #{post.title}
                     br
                     br
                     br
                     br
                 .demo-crumbs.mdl-color-text--grey-500
                     | posted by
-                    a(href='#')  작성자
-                    |  on 작성날짜 in 
-                    a(href='/category/#')  카테고리이름
+                    a(href='#')  purplebeen
+                    |  on #{post.date} in 
+                    a(href='/category/#') #{post.category}
                 br
-                a(href='/post/#/delete')
+                a(href='/post/' + post.title + '/delete')
                     button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px')
                         i.material-icons delete
-                a(href='/post/#{post.getUrl()}/edit')
+                a(href='/post/' + post.title + '/edit')
                     button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px;')
                         i.material-icons edit
                 br                    
@@ -31,7 +31,7 @@ block content
                 br
                 br
                 p
-                    | 본문
+                    | #{post.content}
             .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
             .demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col.main_card
                 h2.mdl-card__title-text 댓글작성자

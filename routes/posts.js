@@ -15,6 +15,12 @@ router.get('/write', (req, res) => {
     });
 });
 
+router.get('/view/:title', (req, res) => {
+    Post.findOne({title : req.params.title }, (err, post) => {
+        if(err) throw err;
+        res.render('post', {post : post});
+    });
+});
 router.post('/write', (req, res) => {
     var newPost = new Post(req.body);
     newPost.save();
