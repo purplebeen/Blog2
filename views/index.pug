@@ -3,56 +3,19 @@ extends layout
 block content
 	main.mdl-layout__content
 		.page-content
-			.demo-card-wide.mdl-card.mdl-shadow--2dp
-				.mdl-card__title(style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkqzJNN0gQZpuNupdbdHVzjcjqfATVLXDwejibHzSwF33mCC6Qg') center / cover;")
-					h2.mdl-card__title-text 제목
-				.mdl-card__supporting-text.text
-					| Posted by 작성자
-					|  on 날짜 , 
-					a(href="/category/#") 카테고리이름
-				.mdl-card__actions.mdl-card--border
-					a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="/post/view/#")
-						| 자세히 보기
-			.demo-card-wide.mdl-card.mdl-shadow--2dp
-				.mdl-card__title(style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkqzJNN0gQZpuNupdbdHVzjcjqfATVLXDwejibHzSwF33mCC6Qg') center / cover;")
-					h2.mdl-card__title-text 제목
-				.mdl-card__supporting-text.text
-					| Posted by 작성자
-					|  on 날짜 ,
-					a(href="/category/#")  카테고리이름
-				.mdl-card__actions.mdl-card--border
-					a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="/post/view/#")
-						| 자세히 보기
-			.demo-card-wide.mdl-card.mdl-shadow--2dp
-				.mdl-card__title(style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkqzJNN0gQZpuNupdbdHVzjcjqfATVLXDwejibHzSwF33mCC6Qg') center / cover;")
-					h2.mdl-card__title-text 제목
-				.mdl-card__supporting-text.text
-					| Posted by 작성자
-					|  on 날짜 ,
-					a(href="/category/#")  카테고리이름
-				.mdl-card__actions.mdl-card--border
-					a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="/post/view/#")
-						| 자세히 보기
-			.demo-card-wide.mdl-card.mdl-shadow--2dp
-				.mdl-card__title(style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkqzJNN0gQZpuNupdbdHVzjcjqfATVLXDwejibHzSwF33mCC6Qg') center / cover;")
-					h2.mdl-card__title-text 제목
-				.mdl-card__supporting-text.text
-					| Posted by 작성자
-					|  on 날짜 ,
-					a(href="/category/#")  카테고리이름
-				.mdl-card__actions.mdl-card--border
-					a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="/post/view/#")
-						| 자세히 보기
-			.demo-card-wide.mdl-card.mdl-shadow--2dp
-				.mdl-card__title(style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkqzJNN0gQZpuNupdbdHVzjcjqfATVLXDwejibHzSwF33mCC6Qg') center / cover;")
-					h2.mdl-card__title-text 제목
-				.mdl-card__supporting-text.text
-					| Posted by 작성자
-					|  on 날짜 ,
-					a(href="/category/#")  카테고리이름
-				.mdl-card__actions.mdl-card--border
-					a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="/post/view/#")
-						| 자세히 보기
+			- if(postList)
+				- for(let post of postList)
+					.demo-card-wide.mdl-card.mdl-shadow--2dp
+						- console.log('title : ' + post.title);
+						.mdl-card__title(style="background: url('" + post.headUrl + "') center / cover;")
+							h2.mdl-card__title-text #{post.title}
+						.mdl-card__supporting-text.text
+							| Posted by purplebeen
+							|  on #{post.date} , 
+							a(href='/category/' + post.category) #{post.category}
+						.mdl-card__actions.mdl-card--border
+							a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/post/' + post.title)
+								| 자세히 보기
 		hr
 		button.mdl-button.mdl-js-button.mdl-button--raised(style="height:60px; margin:10px;background:#2196F3")
 			a(href='#') ← Newer Posts        

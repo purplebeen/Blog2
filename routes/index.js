@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+var Post = require('../models/Post');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  Post.find({}, (err, posts) => {
+    if(err) console.log(err.stack);
+    console.log(posts);
+    res.render('index', {
+        postList : posts
+      });
+  });
 });
+
 
 module.exports = router;
