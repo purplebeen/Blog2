@@ -16,7 +16,7 @@ db.on('error', console.error)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var post = require('./routes/post');
+var posts = require('./routes/posts');
 var aboutme = require('./routes/aboutme');
 
 var app = express();
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/post', post);
+app.use('/posts', posts);
 app.use('/aboutme', aboutme);
 
 // catch 404 and forward to error handler
