@@ -89,6 +89,16 @@ button a {
   color: #fafafa;
   text-decoration:none;
 }
+
+div a {
+  color: #fafafa;
+  text-decoration:none;
+}
+
+div a:hover {
+  color: #fafafa;
+  text-decoration:none;
+}
 span a {
   color: #fafafa;
   text-decoration:none;

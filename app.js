@@ -42,9 +42,9 @@ app.use('/posts', posts);
 app.use('/aboutme', aboutme);
 
 app.post('/files/upload', (req, res) => {
-  req.files.aa.mv(`${__dirname}/public/${req.files.aa.name}`, (err) => {
+  req.files.aa.mv(`${__dirname}/public/images/${req.files.aa.name}`, (err) => {
     if(err) console.log(err);
-    res.redirect(`/${req.files.aa.name}`);
+    res.redirect(`/images/${req.files.aa.name}`);
   });
 });
 
