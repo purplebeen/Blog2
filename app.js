@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fileUpload = require('express-fileupload');
 
 //mongoose setting
 var mongoose = require('mongoose');
@@ -20,6 +21,8 @@ var posts = require('./routes/posts');
 var aboutme = require('./routes/aboutme');
 
 var app = express();
+
+app.use(fileUpload());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,6 +41,16 @@ app.use('/users', users);
 app.use('/posts', posts);
 app.use('/aboutme', aboutme);
 
+app.post('/files/upload', (req, res) => {
+  req.files.aa.mv(`${__dirname}/public/${req.files.aa.name}`, (err) => {
+    if(err) console.log(err);
+    res.redirect(`/${req.files.aa.name}`);
+  });
+});
+
+app.get('/files/upload', (req, res) => {
+  res.render('upload');
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
