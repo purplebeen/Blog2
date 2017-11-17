@@ -103,6 +103,9 @@ span a {
   color: #fafafa;
   text-decoration:none;
 }
+li a {
+  color :  #00B7FF;
+}
 .home {
   text-decoration:none;
   color: white;
