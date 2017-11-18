@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
 
+var authentication = require('./utils/authentication');
+
 //mongoose setting
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/blog')
@@ -35,6 +37,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(authentication);
 
 app.use('/', index);
 app.use('/users', users);

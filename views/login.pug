@@ -7,14 +7,14 @@ block content
             .demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col.main_card
                 h1 로그인
                 br
-                form(action="#" method="post")
+                form(action="/users/login" method="post")
                     .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-                        input#id.mdl-textfield__input(type='text')
+                        input#id.mdl-textfield__input(type='text', name='id')
                         label.mdl-textfield__label(for='id') 아이디
                     br
                     .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-                        input#pw.mdl-textfield__input(type='password')
+                        input#pw.mdl-textfield__input(type='password', name='password')
                         label.mdl-textfield__label(for='pw') 비밀번호
                     br
                     br
-                    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type=submit) 로그인
+                    input.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type='submit', value='로그인')

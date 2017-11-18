@@ -23,22 +23,54 @@ router.get('/', (req, res) => {
 });
 
 router.get('/write', (req, res) => {
-    var dateTime = new Date();
-    res.render('form', {
-        date : dateTime
-    });
+    if(req.user) {
+        var dateTime = new Date();
+        res.render('form', {
+            date : dateTime,
+            formUrl : '/posts/write',
+            userId : req.user.id,
+            user: req.user
+        });
+    } else {
+        res.send('<script>alert("로그인해주세요!"); window.location.href="/users/login";</script>')
+    }
 });
 
 router.get('/view/:title', (req, res) => {
     Post.findOne({title : req.params.title }, (err, post) => {
         if(err) throw err;
-        res.render('post', {post : post, md: md});
+        res.render('post', {
+            post : post, 
+            md: md,
+            user : req.user
+        });
     });
 });
 
 router.post('/write', (req, res) => {
-    var newPost = new Post(req.body);
-    newPost.save();
+    Post.create(req.body, (err, post) => {
+        console.log(err);
+        console.log(post);
+    })
     res.redirect('/');
 });
+
+router.get('/:title/delete', (req, res) => {
+    Post.findOne({title : req.params.title}, (err, post) => {
+        if(err) console.log(err)
+        post.remove();
+        res.redirect('/');        
+    });
+});
+
+router.get('/:title/edit', (req, res) => {
+    Post.findOne({title : req.params.title}, (err, post) => {
+        res.render('form',{
+            post : post,
+            formUrl : '/posts/' + req.params.title + '/edit/',
+            user : req.user
+        });
+    })
+});
+
 module.exports = router;

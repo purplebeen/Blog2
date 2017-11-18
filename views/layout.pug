@@ -36,8 +36,10 @@ html
 						a.mdl-navigation__link(href='/aboutme') About me
 						a.mdl-navigation__link(href='/posts/write') Write
 						a.mdl-navigation__link(href='/users/register') 회원가입
-						a.mdl-navigation__link(href="/users/logout") 로그아웃
-						a.mdl-navigation__link(href="/users/login") 로그인
+						- if(user)
+							a.mdl-navigation__link(href="/users/logout") 로그아웃
+						- else
+							a.mdl-navigation__link(href="/users/login") 로그인
 			.mdl-layout__drawer
 				span.mdl-layout-title
 				a(href='/', id='title') purplebeen's story
@@ -45,7 +47,10 @@ html
 					a.mdl-navigation__link(href='/posts/aboutme') About me
 					a.mdl-navigation__link(href='/posts/write') Write
 					a.mdl-navigation__link(href='') 회원가입
-					a.mdl-navigation__link(href="/user/logout") 로그아웃
-					a.mdl-navigation__link(href="/user/login") 로그인
 					a.mdl-navigation__link(href='/category/#') 카테고리이름
+					- if(user)
+						a.mdl-navigation__link(href="/users/logout") 로그아웃
+					- else
+						a.mdl-navigation__link(href="/users/login") 로그인
+					
 			block content

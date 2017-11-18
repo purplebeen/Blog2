@@ -5,6 +5,7 @@ var postSchema = new mongoose.Schema({
     headUrl : {type : String, required : true},
     content : {type : String, required : true},
     category : {type : String, required : true},
+    aurthor : {type : String, required : true},
     date : {type : Date, required : true}
 });
 

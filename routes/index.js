@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
   Post.find({}, (err, posts) => {
     if(err) console.log(err.stack);
     res.render('index', {
-        postList : posts.sort().reverse()
+        postList : posts.sort().reverse(),
+        user : req.user
       });
   });
 });

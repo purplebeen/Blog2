@@ -17,15 +17,17 @@ block content
                     |  on #{post.date} in 
                     a(href='/category/#') #{post.category}
                 br
-                a(href='/post/' + post.title + '/delete')
-                    button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px')
-                        i.material-icons delete
-                a(href='/post/' + post.title + '/edit')
-                    button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px;')
-                        i.material-icons edit
-                br                    
-                br
-                br
+                -if(user && post.aurthor === user.id)
+                    a(href='/posts/' + post.title + '/delete')
+                        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px')
+                            i.material-icons delete
+                    a(href='/posts/' + post.title + '/edit')
+                        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px;')
+                            i.material-icons edit
+                    br
+                    br
+                    br
+                    br
                 br
                 p
                     | !{md.render(post.content)}
@@ -34,15 +36,16 @@ block content
                 h2.mdl-card__title-text 댓글작성자
                 br
                 p   댓글내용
-
-        .demo-container.mdl-grid
-            .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
-            .demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col.main_card.table-header
-                h4 댓글을 입력하세요
-                form(action='/post/write/comment', method='post')
-                    .mdl-textfield.mdl-js-textfield
-                        textarea#comments.mdl-textfield__input(type='text', rows='5', name='content')
-                        input(type='hidden', name='postId', value='#')
-                        label.mdl-textfield__label(for='comments') 댓글을 입력하세요
-                    button#submit.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type='submit')
-                        | 보내기
+        
+        -if(user)
+            .demo-container.mdl-grid
+                .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
+                .demo-content.mdl-color--white.mdl-shadow--4dp.content.mdl-color-text--grey-800.mdl-cell.mdl-cell--8-col.main_card.table-header
+                    h4 댓글을 입력하세요
+                    form(action='/post/write/comment', method='post')
+                        .mdl-textfield.mdl-js-textfield
+                            textarea#comments.mdl-textfield__input(type='text', rows='5', name='content')
+                            input(type='hidden', name='postId', value='#')
+                            label.mdl-textfield__label(for='comments') 댓글을 입력하세요
+                        button#submit.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type='submit')
+                            | 보내기
