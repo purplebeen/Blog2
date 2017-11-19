@@ -24,9 +24,7 @@ router.get('/', (req, res) => {
 
 router.get('/write', (req, res) => {
     if(req.user) {
-        var dateTime = new Date();
         res.render('form', {
-            date : dateTime,
             formUrl : '/posts/write',
             userId : req.user.id,
             user: req.user,
