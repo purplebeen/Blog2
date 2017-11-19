@@ -29,7 +29,8 @@ router.get('/write', (req, res) => {
             date : dateTime,
             formUrl : '/posts/write',
             userId : req.user.id,
-            user: req.user
+            user: req.user,
+            isEdit : false
         });
     } else {
         res.send('<script>alert("로그인해주세요!"); window.location.href="/users/login";</script>')
@@ -68,9 +69,15 @@ router.get('/:title/edit', (req, res) => {
         res.render('form',{
             post : post,
             formUrl : '/posts/' + req.params.title + '/edit/',
-            user : req.user
+            user : req.user,
+            isEdit : true
         });
     })
 });
+
+router.post('/:title/edit', (req, res) => {
+    Post.update({title : req.body.title}, req.body, (err, raw) => console.log(raw));
+    res.redirect('/posts/view/' + req.params.title);
+})
 
 module.exports = router;

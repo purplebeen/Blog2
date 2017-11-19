@@ -7,13 +7,22 @@ block content
             .demo-card-wide.mdl-card.mdl-shadow--2dp
                 form(action=formUrl, method='post')
                     .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.inputBox(style="margin-bottom:5px;")
-                        input#title_text.mdl-textfield__input(type='text', name='title')
+                        -if(isEdit)
+                            input#title_text.mdl-textfield__input(type='text', name='title', value=post.title)
+                        -else
+                            input#title_text.mdl-textfield__input(type='text', name='title')
                         label.mdl-textfield__label(for='title_text') 제목
                     .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.inputBox(style='marigin-top:5px;')
-                        input#imageUrl.mdl-textfield__input(type='text', name='headUrl')
+                        -if(isEdit)
+                            input#imageUrl.mdl-textfield__input(type='text', name='headUrl', value=post.headUrl)
+                        -else
+                            input#imageUrl.mdl-textfield__input(type='text', name='headUrl')
                         label.mdl-textfield__label(for='imageUrl') 헤드 이미지 url 
                     div(style="margin:20px")
-                        textarea#content.inputBox(name="content", cols="30", rows="10")
+                        -if(isEdit)
+                            textarea#content.inputBox(name="content", cols="30", rows="10") #{post.content}
+                        -else
+                            textarea#content.inputBox(name="content", cols="30", rows="10")
                     div(style="margin:30px;")
                         label(for="category")   Category
                         select#category.mdl-textfield__input(name='category')
@@ -22,8 +31,12 @@ block content
                             option(value='자바스크립트') 자바스크립트   
                             option(value='알고리즘') 알고리즘
                             option(value='잡담') 잡담
-                    input(type='hidden', value=date, name="date") 
-                    input(type='hidden', value=userId, name="aurthor")
+                    -if(isEdit)
+                        input(type='hidden', value=post.date, name="date")
+                        input(type='hidden', value=post.aurthor, name="aurthor")
+                    -else
+                        input(type='hidden', value=date, name="date")
+                        input(type='hidden', value=userId, name="aurthor")
                     button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type=submit, style="float:right; margin:30px;") 작성하기
 
             .demo-card-wide.mdl-card.mdl-shadow--2dp
