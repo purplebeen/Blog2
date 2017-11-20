@@ -38,7 +38,10 @@ block content
                     h2.mdl-card__title-text #{comment.aurthor}
                     br
                     p #{comment.content}
-        
+                    -if(user && comment.aurthor == user.id)
+                        br
+                        .button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent(style="margin-bottom:30px; a:link{color : white; text-decoration: none};",type='button', id='image_upload')
+                            a(href='/comments/delete/' + post.title + '/' + comment._id) 삭제       
         -if(user)
             .demo-container.mdl-grid
                 .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
