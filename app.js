@@ -21,7 +21,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var posts = require('./routes/posts');
 var aboutme = require('./routes/aboutme');
-
+var comments = require('./routes/comments');
 var app = express();
 
 app.use(fileUpload());
@@ -44,6 +44,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/posts', posts);
 app.use('/aboutme', aboutme);
+app.use('/comments', comments);
 
 app.post('/files/upload', (req, res) => {
   req.files.aa.mv(`${__dirname}/public/images/${req.files.aa.name}`, (err) => {
