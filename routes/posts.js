@@ -16,6 +16,7 @@ var md = require('markdown-it')({
 
 var router = express.Router();
 var Post = require('../models/Post');
+var Category = require('../models/Category');
 
 //index
 router.get('/', (req, res) => {
@@ -24,11 +25,14 @@ router.get('/', (req, res) => {
 
 router.get('/write', (req, res) => {
     if(req.user) {
-        res.render('form', {
-            formUrl : '/posts/write',
-            userId : req.user.id,
-            user: req.user,
-            isEdit : false
+        Category.find({}, (err, categoryList) => {
+            res.render('form', {
+                formUrl : '/posts/write',
+                userId : req.user.id,
+                user: req.user,
+                isEdit : false,
+                categoryList : categoryList
+            });
         });
     } else {
         res.send('<script>alert("로그인해주세요!"); window.location.href="/users/login";</script>')

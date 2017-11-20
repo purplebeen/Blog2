@@ -49,7 +49,7 @@ block content
                     h4 댓글을 입력하세요
                     form(action='/comments/write/' + post.title , method='post')
                         .mdl-textfield.mdl-js-textfield
-                            textarea#comments.mdl-textfield__input(type='text', rows='5', name='content')
+                            textarea#comments.mdl-textfield__input(type='text', rows='5' cols='20', name='content')
                             label.mdl-textfield__label(for='comments') 댓글을 입력하세요
                         input(type='hidden', name='aurthor', value=user.id)
                         button#submit.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type='submit')
