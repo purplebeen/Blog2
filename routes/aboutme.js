@@ -5,8 +5,7 @@ var Category = require('../models/Category');
 
 router.get('/', (req, res) => {
     res.render('about-me', {
-        user : req.user,            
-        categoryList : categories
+        user : req.user         
     });
 });
 
