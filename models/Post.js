@@ -6,7 +6,7 @@ var postSchema = new mongoose.Schema({
     content : {type : String, required : true},
     category : {type : String, required : true},
     aurthor : {type : String, required : true},
-    date : {type : Date, dfault: Date.now}, 
+    date : {type : Date, default: Date.now}, 
     comments : [{
         aurthor : {type : String ,required :  true},
         content : {type : String , required : true},

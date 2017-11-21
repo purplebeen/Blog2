@@ -80,6 +80,20 @@ router.get('/:title/edit', (req, res) => {
 router.post('/:title/edit', (req, res) => {
     Post.update({title : req.body.title}, req.body, (err, raw) => console.log(raw));
     res.redirect('/posts/view/' + req.params.title);
-})
+});
 
+router.get('/pages/:pageNum', (req, res) => {
+    Post.find({}, (err, posts) => {
+        if(req.params.pageNum == posts.length)
+            var isLast = true;
+        else
+            var isLast = false;
+        res.render('index', {
+            postList : posts,
+            user : req.user,
+            pageNum : req.params.pageNum,
+            isLast : isLast
+        });
+    }).sort({date : -1}).skip(parseInt(req.params.pageNum) * 5).limit(5);
+});
 module.exports = router;

@@ -17,7 +17,9 @@ block content
 							a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/posts/view/' + post.title)
 								| 자세히 보기
 		hr
-		button.mdl-button.mdl-js-button.mdl-button--raised(style="height:60px; margin:10px;background:#2196F3")
-			a(href='#') ← Newer Posts        
-		button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(style="height:60px; margin:10px; float: right;")
-			a(href='#') Older Posts →
+		-if(pageNum != 0)
+			button.mdl-button.mdl-js-button.mdl-button--raised(style="height:60px; margin:10px;background:#2196F3")
+				a(href='/posts/pages/' + (pageNum - 1)) ← Newer Posts
+		-if(!isLast)
+			button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(style="height:60px; margin:10px; float: right;")
+				a(href='/posts/pages/' + (pageNum + 1)) Older Posts →
