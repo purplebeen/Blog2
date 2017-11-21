@@ -63,11 +63,14 @@ router.get('/:title/delete', (req, res) => {
 
 router.get('/:title/edit', (req, res) => {
     Post.findOne({title : req.params.title}, (err, post) => {
-        res.render('form',{
-            post : post,
-            formUrl : '/posts/' + req.params.title + '/edit/',
-            user : req.user,
-            isEdit : true,
+        Category.find({}, (err, categories) => {
+            res.render('form',{
+                post : post,
+                formUrl : '/posts/' + req.params.title + '/edit/',
+                user : req.user,
+                isEdit : true,
+                categoryList : categories
+            });
         });
     });
 });

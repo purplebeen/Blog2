@@ -6,7 +6,7 @@ var config = require('../config/config');
 var router = express.Router();
 
 var User = require('../models/User');
-
+var Category = require('../models/Category');
 router.get('/login', (req, res) => {
     res.render('login', {
         user : req.user
@@ -32,8 +32,7 @@ router.get('/logout', (req, res) => {
 router.get('/register', (req, res) => {
     Category.find({}, (err, categories) => {
         res.render('register', {
-            user : req.user,
-            categoryList : categories
+            user : req.user
         });
     });
 });
