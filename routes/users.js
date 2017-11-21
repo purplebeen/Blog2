@@ -6,8 +6,11 @@ var config = require('../config/config');
 var router = express.Router();
 
 var User = require('../models/User');
+
 router.get('/login', (req, res) => {
-    res.render('login', {user : req.user});
+    res.render('login', {
+        user : req.user
+    });
 });
 
 router.post('/login', (req, res) => {
@@ -27,7 +30,12 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/register', (req, res) => {
-    res.render('register', {user : req.user});
+    Category.find({}, (err, categories) => {
+        res.render('register', {
+            user : req.user,
+            categoryList : categories
+        });
+    });
 });
 
 router.post('/register', (req, res) => {
@@ -38,6 +46,6 @@ router.post('/register', (req, res) => {
     } else {
         res.send('<script>alert("비밀번호를 확인해 주세요"); window.location.href="/users/register";</script>');
     }
-})
+});
 
 module.exports = router;

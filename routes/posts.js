@@ -18,21 +18,13 @@ var router = express.Router();
 var Post = require('../models/Post');
 var Category = require('../models/Category');
 
-//index
-router.get('/', (req, res) => {
-    res.render('post');
-});
-
 router.get('/write', (req, res) => {
     if(req.user) {
-        Category.find({}, (err, categoryList) => {
-            res.render('form', {
-                formUrl : '/posts/write',
-                userId : req.user.id,
-                user: req.user,
-                isEdit : false,
-                categoryList : categoryList
-            });
+        res.render('form', {
+            formUrl : '/posts/write',
+            userId : req.user.id,
+            user: req.user,
+            isEdit : false
         });
     } else {
         res.send('<script>alert("로그인해주세요!"); window.location.href="/users/login";</script>')
@@ -45,7 +37,7 @@ router.get('/view/:title', (req, res) => {
         res.render('post', {
             post : post, 
             md: md,
-            user : req.user
+            user : req.user        
         });
     });
 });
@@ -72,9 +64,9 @@ router.get('/:title/edit', (req, res) => {
             post : post,
             formUrl : '/posts/' + req.params.title + '/edit/',
             user : req.user,
-            isEdit : true
+            isEdit : true,
         });
-    })
+    });
 });
 
 router.post('/:title/edit', (req, res) => {
@@ -92,7 +84,7 @@ router.get('/pages/:pageNum', (req, res) => {
             postList : posts,
             user : req.user,
             pageNum : req.params.pageNum,
-            isLast : isLast
+            isLast : isLast        
         });
     }).sort({date : -1}).skip(parseInt(req.params.pageNum) * 5).limit(5);
 });

@@ -11,14 +11,4 @@ router.post('/add', (req, res) => {
     });
 });
 
-router.get('/:categoryName', (req, res) => {
-    Post.findAll({category : req.params.categoryName}, (err, posts) => {
-        if(err) console.log(err);
-        res.render('index', {
-            postList : posts, 
-            user : req.user
-        });
-    });
-});
-
 module.exports = router;
