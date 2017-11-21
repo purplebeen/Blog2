@@ -20,11 +20,14 @@ var Category = require('../models/Category');
 
 router.get('/write', (req, res) => {
     if(req.user) {
-        res.render('form', {
-            formUrl : '/posts/write',
-            userId : req.user.id,
-            user: req.user,
-            isEdit : false
+        Category.find({}, (err,categories) => {
+            res.render('form', {
+                formUrl : '/posts/write',
+                userId : req.user.id,
+                user: req.user,
+                isEdit : false,
+                categoryList : categories
+            });
         });
     } else {
         res.send('<script>alert("로그인해주세요!"); window.location.href="/users/login";</script>')
