@@ -82,16 +82,22 @@ router.post('/:id/edit', (req, res) => {
 
 router.get('/pages/:pageNum', (req, res) => {
     Post.find({}, (err, posts) => {
-        if(req.params.pageNum == posts.length)
-            var isLast = true;
-        else
-            var isLast = false;
-        res.render('index', {
-            postList : posts,
-            user : req.user,
-            pageNum : req.params.pageNum,
-            isLast : isLast        
-        });
+        Post.count((err, count) => {
+            var pageNum = parseInt(req.params.pageNum);
+            var isLast;
+            if((parseInt(count / 5)) == pageNum)
+                isLast = true;
+            else
+                isLast = false;
+            console.log(parseInt(count / 5));
+            res.render('index', {
+                postList : posts,
+                user : req.user,
+                pageNum : pageNum,
+                isLast : isLast        
+            });
+        })
+       
     }).sort({date : -1}).skip(parseInt(req.params.pageNum) * 5).limit(5);
 });
 module.exports = router;
