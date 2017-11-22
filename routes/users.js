@@ -41,7 +41,7 @@ router.post('/register', (req, res) => {
     if(req.body.password == req.body.password2) {
         var newUser = new User(req.body);
         newUser.save();
-        res.send('Hello ' + req.body.userName);
+        res.redirect('/users/login');
     } else {
         res.send('<script>alert("비밀번호를 확인해 주세요"); window.location.href="/users/register";</script>');
     }
