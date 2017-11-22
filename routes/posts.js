@@ -34,8 +34,8 @@ router.get('/write', (req, res) => {
     }
 });
 
-router.get('/view/:title', (req, res) => {
-    Post.findOne({title : req.params.title }, (err, post) => {
+router.get('/view/:id', (req, res) => {
+    Post.findOne({_id : req.params.id }, (err, post) => {
         if(err) throw err;
         res.render('post', {
             post : post, 
@@ -53,20 +53,20 @@ router.post('/write', (req, res) => {
     res.redirect('/');
 });
 
-router.get('/:title/delete', (req, res) => {
-    Post.findOne({title : req.params.title}, (err, post) => {
+router.get('/:id/delete', (req, res) => {
+    Post.findOne({_id : req.params.id}, (err, post) => {
         if(err) console.log(err)
         post.remove();
         res.redirect('/');        
     });
 });
 
-router.get('/:title/edit', (req, res) => {
-    Post.findOne({title : req.params.title}, (err, post) => {
+router.get('/:id/edit', (req, res) => {
+    Post.findOne({_id : req.params.id}, (err, post) => {
         Category.find({}, (err, categories) => {
             res.render('form',{
                 post : post,
-                formUrl : '/posts/' + req.params.title + '/edit/',
+                formUrl : '/posts/' + req.params.id + '/edit/',
                 user : req.user,
                 isEdit : true,
                 categoryList : categories
@@ -75,9 +75,9 @@ router.get('/:title/edit', (req, res) => {
     });
 });
 
-router.post('/:title/edit', (req, res) => {
-    Post.update({title : req.body.title}, req.body, (err, raw) => console.log(raw));
-    res.redirect('/posts/view/' + req.params.title);
+router.post('/:id/edit', (req, res) => {
+    Post.update({_id : req.body.id}, req.body, (err, raw) => console.log(raw));
+    res.redirect('/posts/view/' + req.params.id);
 });
 
 router.get('/pages/:pageNum', (req, res) => {

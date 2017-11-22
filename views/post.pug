@@ -15,13 +15,13 @@ block content
                     | posted by
                     a(href='#')  purplebeen
                     |  on #{post.date} in 
-                    a(href='/category/#') #{post.category}
+                    a(href='#') #{post.category}
                 br
                 -if(user && post.aurthor === user.id)
-                    a(href='/posts/' + post.title + '/delete')
+                    a(href='/posts/' + post._id + '/delete')
                         button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px')
                             i.material-icons delete
-                    a(href='/posts/' + post.title + '/edit')
+                    a(href='/posts/' + post._id + '/edit')
                         button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px;')
                             i.material-icons edit
                     br
