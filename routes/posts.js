@@ -76,7 +76,7 @@ router.get('/:id/edit', (req, res) => {
 });
 
 router.post('/:id/edit', (req, res) => {
-    Post.update({_id : req.body.id}, req.body, (err, raw) => console.log(raw));
+    Post.update({_id : req.params.id}, req.body, (err, raw) => console.log(err));
     res.redirect('/posts/view/' + req.params.id);
 });
 
