@@ -22,7 +22,7 @@ router.get('/:categoryName', (req, res) => {
                 categoryList : categories
             });
         });
-    });
+    }).sort({date : -1});
 });
 
 module.exports = router;
