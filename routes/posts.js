@@ -36,11 +36,14 @@ router.get('/write', (req, res) => {
 
 router.get('/view/:id', (req, res) => {
     Post.findOne({_id : req.params.id }, (err, post) => {
-        if(err) throw err;
-        res.render('post', {
-            post : post, 
-            md: md,
-            user : req.user        
+        Category.find({}, (err, categories) => {
+            if(err) throw err;
+            res.render('post', {
+                post : post,
+                md: md,
+                user : req.user,
+                categoryList : categories
+            });
         });
     });
 });
@@ -83,21 +86,23 @@ router.post('/:id/edit', (req, res) => {
 router.get('/pages/:pageNum', (req, res) => {
     Post.find({}, (err, posts) => {
         Post.count((err, count) => {
-            var pageNum = parseInt(req.params.pageNum);
-            var isLast;
-            if((parseInt(count / 5)) == pageNum)
-                isLast = true;
-            else
-                isLast = false;
-            console.log(parseInt(count / 5));
-            res.render('index', {
-                postList : posts,
-                user : req.user,
-                pageNum : pageNum,
-                isLast : isLast        
+            Category.find({}, (err, categories) => {
+                var pageNum = parseInt(req.params.pageNum);
+                var isLast;
+                if((parseInt(count / 5)) == pageNum)
+                    isLast = true;
+                else
+                    isLast = false;
+                console.log(parseInt(count / 5));
+                res.render('index', {
+                    postList : posts,
+                    user : req.user,
+                    pageNum : pageNum,
+                    isLast : isLast,
+                    categoryList : categories
+                });
             });
-        })
-       
+        });
     }).sort({date : -1}).skip(parseInt(req.params.pageNum) * 5).limit(5);
 });
 module.exports = router;

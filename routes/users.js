@@ -8,8 +8,11 @@ var router = express.Router();
 var User = require('../models/User');
 var Category = require('../models/Category');
 router.get('/login', (req, res) => {
-    res.render('login', {
-        user : req.user
+    Category.find({}, (err, categories) => {
+        res.render('login', {
+            user : req.user,
+            categoryList : categories
+        });
     });
 });
 
@@ -32,7 +35,8 @@ router.get('/logout', (req, res) => {
 router.get('/register', (req, res) => {
     Category.find({}, (err, categories) => {
         res.render('register', {
-            user : req.user
+            user : req.user,
+            categoryList: categories
         });
     });
 });

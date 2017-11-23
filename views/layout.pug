@@ -52,5 +52,7 @@ html
 						a.mdl-navigation__link(href="/users/logout") 로그아웃
 					- else
 						a.mdl-navigation__link(href="/users/login") 로그인
+					-for(let category of categoryList)
+						a.mdl-navigation__link(href='/categories/' + category.name) #{category.name}
 					
 			block content
