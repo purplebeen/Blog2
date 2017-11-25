@@ -8,7 +8,7 @@
 * pug(template Engine)
 
 # 사용 방법
-/config/config.js 생성후 jwtTokenAlgorithm과 key 설정 그 이후
+/config/config.js 생성후 jwtTokenAlgorithm과 salt 설정 그 이후
 ```bash
 npm install
 ```
