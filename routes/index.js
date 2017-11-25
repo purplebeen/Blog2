@@ -7,11 +7,14 @@ var Category = require('../models/Category');
 router.get('/', function(req, res, next) {
   Post.find({}, (err, posts) => {
     if(err) console.log(err.stack);
-      res.render('index', {
-        postList : posts,
-        user : req.user,
-        isLast : false,
-        pageNum : 0
+    Category.find({}, (err, categories) => {
+        res.render('index', {
+            postList : posts,
+            user : req.user,
+            isLast : false,
+            pageNum : 0,
+            categoryList : categories
+        });
     });
   }).sort({ date: -1 }).skip(0 * 5).limit(5);
 });

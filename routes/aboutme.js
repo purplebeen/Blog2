@@ -4,8 +4,11 @@ var router = express.Router();
 var Category = require('../models/Category');
 
 router.get('/', (req, res) => {
-    res.render('about-me', {
-        user : req.user         
+    Category.find({}, (err, categories) => {
+        res.render('about-me', {
+            user : req.user,
+            categoryList : categories
+        });
     });
 });
 

@@ -11,4 +11,18 @@ router.post('/add', (req, res) => {
     });
 });
 
+router.get('/:categoryName', (req, res) => {
+    Post.find({category : req.params.categoryName}, (err, posts) => {
+        Category.find({}, (err, categories) => {
+            res.render('index', {
+                postList : posts,
+                user : req.user,
+                isLast : true,
+                pageNum : 0,
+                categoryList : categories
+            });
+        });
+    }).sort({date : -1});
+});
+
 module.exports = router;
