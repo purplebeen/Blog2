@@ -1,5 +1,5 @@
 # 북극곰의 개발일기
-Second Blog project with Node.JS &amp; MongoDB
+> Second Blog project with Node.JS &amp; MongoDB
 
 # 사용 기술
 * Node.JS
