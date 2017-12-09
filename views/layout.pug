@@ -29,18 +29,18 @@ html
 				.mdl-layout__header-row
 					// Title
 					span.mdl-layout-title 
-						a(href="/") 북극곰의 개발일기
+						a.head(href="/") 북극곰의 개발일기
 					// Add spacer, to align navigation to the right
 					.mdl-layout-spacer
 					// Navigation. We hide it in small screens.
 					nav.mdl-navigation.mdl-layout--large-screen-only
-						a.mdl-navigation__link(href='/aboutme') About me
-						a.mdl-navigation__link(href='/posts/write') Write
-						a.mdl-navigation__link(href='/users/register') 회원가입
+						a.head.mdl-navigation__link(href='/aboutme') About me
+						a.head.mdl-navigation__link(href='/posts/write') Write
+						a.head.mdl-navigation__link(href='/users/register') 회원가입
 						- if(user)
-							a.mdl-navigation__link(href="/users/logout") 로그아웃
+							a.head.mdl-navigation__link(href="/users/logout") 로그아웃
 						- else
-							a.mdl-navigation__link(href="/users/login") 로그인
+							a.head.mdl-navigation__link(href="/users/login") 로그인
 			.mdl-layout__drawer
 				span.mdl-layout-title
 				a(href='/', id='title') 북극곰의 개발일기
