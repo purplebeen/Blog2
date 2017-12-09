@@ -65,7 +65,7 @@
   margin: 10px;
   padding: 20px;
 }
-* {
+* , code {
   font-family: 'NanumSquare', serif;
 }
 body {
