@@ -1,4 +1,4 @@
-@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 .demo-layout-transparent {
   background: url('http://materialdesignblog.com/wp-content/uploads/2016/06/image3.jpg') center / cover;
 }
@@ -66,7 +66,7 @@
   padding: 20px;
 }
 * , code {
-  font-family: 'NanumSquare', serif;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 body {
   background: #fafafa;
@@ -83,7 +83,7 @@ body {
 a.head {
   color: white;
   text-decoration: none;
-  font-family: 'NanumSquare', serif;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 .inputBox {
   width: calc(100% - 30px);
