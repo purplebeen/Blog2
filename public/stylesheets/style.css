@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 .demo-layout-transparent {
   background: url('http://materialdesignblog.com/wp-content/uploads/2016/06/image3.jpg') center / cover;
 }
@@ -32,7 +32,7 @@
   height: 50%;
 }
 .text {
-  font-size : 10pt;
+  font-size:16px;line-height:140%; letter-spacing:0px; margin:0 auto 28px
 }
 
 
@@ -66,8 +66,7 @@
   padding: 20px;
 }
 * , code {
-  font-family: 'Nanum Gothic', sans-serif;
-}
+  font-family: 'Jeju Gothic', serif;}
 body {
   background: #fafafa;
   position: relative;
@@ -83,7 +82,7 @@ body {
 a.head {
   color: white;
   text-decoration: none;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Jeju Gothic', serif;
 }
 .inputBox {
   width: calc(100% - 30px);
