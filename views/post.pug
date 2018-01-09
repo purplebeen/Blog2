@@ -15,7 +15,7 @@ block content
                     | posted by
                     a(href='#')  purplebeen
                     |  on #{post.date} in 
-                    a(href='#') #{post.category}
+                    a(href='/categories/' + post.category) #{post.category}
                 br
                 -if(user && post.aurthor === user.id)
                     a(href='/posts/' + post._id + '/delete')
