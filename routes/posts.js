@@ -11,7 +11,8 @@ var md = require('markdown-it')({
         }
 
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-    }
+    },
+    breaks: true
 });
 
 var router = express.Router();
