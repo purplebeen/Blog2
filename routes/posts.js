@@ -13,7 +13,12 @@ var md = require('markdown-it')({
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
     },
     breaks: true
-});
+}).use(require('markdown-it-video', { 
+    youtube: { width: 640, height: 390 },
+    vimeo: { width: 500, height: 281 },
+    vine: { width: 600, height: 600, embed: 'simple' },
+    prezi: { width: 550, height: 400 }
+  }));;
 
 var router = express.Router();
 var Post = require('../models/Post');
