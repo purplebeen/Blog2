@@ -33,7 +33,7 @@ html
 					// Add spacer, to align navigation to the right
 					.mdl-layout-spacer
 					// Navigation. We hide it in small screens.
-					nav.mdl-navigation.mdl-layout--large-screen-only
+					nav.mdl-navigation.mdl-layout--large-screen-only.category
 						a.head.mdl-navigation__link(href='/aboutme') About me
 						a.head.mdl-navigation__link(href='/posts/write') Write
 						a.head.mdl-navigation__link(href='/users/register') 회원가입
@@ -44,7 +44,7 @@ html
 			.mdl-layout__drawer
 				span.mdl-layout-title
 				a(href='/', id='title') 북극곰의 개발일기
-				nav.mdl-navigation
+				nav.mdl-navigation.category
 					a.mdl-navigation__link(href='/aboutme') About me
 					a.mdl-navigation__link(href='/posts/write') Write
 					a.mdl-navigation__link(href='/users/register') 회원가입
