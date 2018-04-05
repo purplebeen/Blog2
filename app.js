@@ -74,6 +74,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  if(err.status == 500) {
+    res.locals.message = "서버에서 오류가 발생하였습니다. 잠시 후 다시 시도해주세요.";
+  } else if(err.status == 404) {
+    res.locals.message = "요청하신 페이지를 찾을 수 없습니다.";
+  }
   res.render('error');
 });
 
