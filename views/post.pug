@@ -40,8 +40,8 @@ block content
                     p #{comment.content}
                     -if(user && comment.aurthor == user.id)
                         br
-                        .button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent(style="margin-bottom:30px; a:link{color : white; text-decoration: none};",type='button', id='image_upload')
-                            a(href='/comments/delete/' + post._id+ '/' + comment._id) 삭제       
+                        a(href='/comments/delete/' + post._id+ '/' + comment._id)
+                            button.button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(style="margin-bottom:30px; a:link{color : white; text-decoration: none};",type='button', id='image_upload')   삭제
         -if(user)
             .demo-container.mdl-grid
                 .mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
