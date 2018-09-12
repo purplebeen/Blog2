@@ -19,10 +19,11 @@ block content
                 br
                 -if(user && post.aurthor === user.id)
                     a(href='/posts/' + post._id + '/delete')
-                        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px')
+                        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px')
+                            i.material-icons delete
                             i.material-icons delete
                     a(href='/posts/' + post._id + '/edit')
-                        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px;')
+                        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-js-ripple-effect.mdl-button--colored(style='float:right; margin:5px;')
                             i.material-icons edit
                     br
                     br
@@ -52,5 +53,5 @@ block content
                             textarea#comments.mdl-textfield__input(type='text', rows='5' cols='20', name='content')
                             label.mdl-textfield__label(for='comments') 댓글을 입력하세요
                         input(type='hidden', name='aurthor', value=user.id)
-                        button#submit.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type='submit')
+                        button#submit.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(type='submit')
                             | 보내기

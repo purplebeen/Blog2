@@ -18,8 +18,8 @@ block content
 								| 자세히 보기
 		hr
 		-if(pageNum != 0)
-			.button.mdl-button.mdl-js-button.mdl-button--raised(style="margin:10px;background:#2196F3")
-				a(href='/posts/pages/' + (pageNum - 1)) ← Newer Posts
+			a(href='/posts/pages/' + (pageNum - 1))
+				button.button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--raised.mdl-button--accent(style="margin:10px;") ← Newer Posts
 		-if(!isLast)
-			.button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(style="margin:10px; float: right;")
-				a(href='/posts/pages/' + (pageNum + 1)) Older Posts →
+			a(href='/posts/pages/' + (pageNum + 1))
+				button.button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(style="margin:10px; float: right;") Older Posts →

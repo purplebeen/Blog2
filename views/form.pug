@@ -39,10 +39,10 @@ block content
                 form(action="/categories/add", method="post")
                     .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.inputBox
                         input#categoryName.mdl-textfield__input(type='text', name='name', style='width:calc(100% - 120px); margin-top:0px;')
-                        label.mdl-textfield__label(for='categoryText') 카테고리
+                        label.mdl-textfield__label(for='categoryName') 카테고리
                     button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type=submit, style="margin-left:20px;margin-bottom:30px;") 카테고리 추가
-                    .button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent(style="margin-left:10px;margin-bottom:30px; a:link{color : white; text-decoration: none};",type='button', id='image_upload')
-                        a(href='/files/upload', target='_blank') 이미지 업로드
+                    a(href='/files/upload', target='_blank')
+                        button.button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(style="margin-left:10px;margin-bottom:30px; a:link{color : white; text-decoration: none};",type='button', id='image_upload')   이미지업로드
 
     script.
         var simplemde = new SimpleMDE({ element: document.getElementById("content") });
