@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var Post = require('../models/Post');
+const Post = require('../models/Post').Post;
 
 router.post('/write/:id', (req, res) => {
     Post.findOne({_id : req.params.id},(err, post) => {

@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var Category = require('../models/Category');
-var Post = require('../models/Post');
+const express = require('express');
+const router = express.Router();
+const Category = require('../models/Category').Category;
+const Post = require('../models/Post').Post;
 
 router.post('/add', (req, res) => {
     console.log(req.body);

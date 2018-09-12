@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var Category = require('../models/Category');
+const Category = require('../models/Category').Category;
 
 router.get('/', (req, res) => {
     Category.find({}, (err, categories) => {

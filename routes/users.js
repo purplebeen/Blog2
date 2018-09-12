@@ -1,12 +1,13 @@
-var express = require('express');
-var jwt = require('jsonwebtoken');
+const express = require('express');
+const jwt = require('jsonwebtoken');
 
-var config = require('../config/config');
+const config = require('../config/config');
 
-var router = express.Router();
+const router = express.Router();
 
-var User = require('../models/User');
-var Category = require('../models/Category');
+const User = require('../models/User').User;
+const Category = require('../models/Category').Category;
+
 router.get('/login', (req, res) => {
     Category.find({}, (err, categories) => {
         res.render('login', {

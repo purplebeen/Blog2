@@ -1,28 +1,29 @@
-var express = require('express');
-var hljs = require('highlight.js');
-var md = require('markdown-it')({
+const express = require('express');
+const hljs = require('highlight.js');
+const md = require('markdown-it')({
     highlight: function (str, lang) {
         if (lang && hljs.getLanguage(lang)) {
             try {
                 return '<pre class="hljs"><code>' +
-                        hljs.highlight(lang, str, true).value +
-                        '</code></pre>';
-            } catch (__) {}
+                    hljs.highlight(lang, str, true).value +
+                    '</code></pre>';
+            } catch (__) {
+            }
         }
 
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
     },
     breaks: true
-}).use(require('markdown-it-video', { 
-    youtube: { width: 640, height: 390 },
-    vimeo: { width: 500, height: 281 },
-    vine: { width: 600, height: 600, embed: 'simple' },
-    prezi: { width: 550, height: 400 }
-  }));;
+}).use(require('markdown-it-video', {
+    youtube: {width: 640, height: 390},
+    vimeo: {width: 500, height: 281},
+    vine: {width: 600, height: 600, embed: 'simple'},
+    prezi: {width: 550, height: 400}
+}));;
 
-var router = express.Router();
-var Post = require('../models/Post');
-var Category = require('../models/Category');
+const router = express.Router();
+const Post = require('../models/Post').Post;
+const Category = require('../models/Category').Category;
 
 router.get('/write', (req, res) => {
     if(req.user) {

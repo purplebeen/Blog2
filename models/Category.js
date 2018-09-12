@@ -5,4 +5,4 @@ var categorySchema = new mongoose.Schema({
     date : {type : Date, default : Date.now}
 });
 
-module.exports = mongoose.model('category', categorySchema);
+module.exports.Category = mongoose.model('category', categorySchema);

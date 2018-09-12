@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var Post = require('../models/Post');
-var Category = require('../models/Category');
+const Post = require('../models/Post').Post;
+const Category = require('../models/Category').Category;
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Post.find({}, (err, posts) => {

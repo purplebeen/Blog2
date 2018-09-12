@@ -16,4 +16,4 @@ var postSchema = new mongoose.Schema({
     usePushEach: true,
 });
 
-module.exports = mongoose.model('post', postSchema);
+module.exports.Post = mongoose.model('post', postSchema);
