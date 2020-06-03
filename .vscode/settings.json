@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/4250f6c9-b994-4cd8-8f92-cc3f6c24a076/resourceGroups/Ubuntu/providers/Microsoft.Web/sites/purplebeen-tech",
+    "appService.deploySubpath": "."
+}

@@ -22,7 +22,7 @@ router.post('/login', (req, res) => {
         if(err) throw err;
         if(user && user.password === req.body.password) {
             let payload = { userName: user.userName, id: user.id };
-            res.cookie('token', jwt.sign(payload, config.salt, { algorithm: config.jwtAlgorithm }), {});
+            res.cookie('token', jwt.sign(payload, config.salt, { algorithm: config.algorithm }), {});
             res.redirect('/');
         } else {
             res.send('<script>alert("아이디 혹은 패스워드를 확인해주세요!"); window.location.href="/users/login";</script>')
